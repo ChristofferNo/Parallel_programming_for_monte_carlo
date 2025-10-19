@@ -180,8 +180,18 @@ def main():
     print(f"Ex4: Sequential time of {d} and {n}: {stop-start}")
     print("What is parallel time?")
 
-    
-    
+    # ||    Running the tests on a server (arrhenius)   ||
+        #Approx of Pi: 3.08
+        # Approx of Pi: 3.1308
+        # Approx of Pi: 3.14172
+        # actual volume: 3.141592653589793
+        # Actual volume of 2 dimentional sphere = 3.141592653589793 m^2 
+        # actual volume: 1.8841038793898994
+        # Actual volume of 11 dimentional sphere = 1.8841038793898994 m^11 
+        # Ex3: Sequential time of 11 and 100000: 12.010288350982592
+        # What is parallel time?     Answer: 1.90464
+        # Ex4: Sequential time of 11 and 1000000: 12.728360970970243
+        # What is parallel time?    Answer: 1.859584
 
 if __name__ == '__main__':
     main()
