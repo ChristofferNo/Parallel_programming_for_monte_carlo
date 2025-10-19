@@ -116,7 +116,7 @@ def sphere_volume_parallel1(n,d,np=10):
     # Optionally return average or all results
     return sum(volumes) / len(volumes)
     
-def partial_volume(p_points, d):
+def partial_volume(p_points):
     inside = 0
     for p in p_points: 
         distance = m.sqrt(sum([x**2 for x in p]))
@@ -132,15 +132,12 @@ def sphere_volume_parallel2(n,d,np=10):
     #n is the number of points
     # d is the number of dimensions of the sphere
     #np is the number of processes
-    start = pc()
     partial_points = [[[random.uniform(-1,1) for ii in range(d)] for jj in range(n // np)] for kk in range(np)] # [[(x,y,z,...),(...),(...)], [(...),(...),(...)], [(...),(...),(...)]...]
     
     with future.ProcessPoolExecutor() as ex:
-        results = ex.map(partial_volume, partial_points, [d * np])
+        results = ex.map(partial_volume, partial_points)
         
-    inside = 0
-    for _ in results:
-        inside += 1
+    inside = sum(results)
     
     volume = lambda x,y : m.pow(2,d) *  x/y 
     
