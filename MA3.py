@@ -145,48 +145,40 @@ def sphere_volume_parallel2(n,d,np=10):
     return volume(inside, n)
     
 def main():
-     
+
+    #Ex1
+    dots = [1000, 10000, 100000]
+    for n in dots:
+        approximate_pi(n)
+    #Ex2
+    n = 100000
+    d = 2
+    sphere_volume(n,d)
+    print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(d)} m^{d} ")
+
     n = 100000
     d = 11
-    np = 2
-     
-    # sphere_volume_parallel1(n, d, np)
+    sphere_volume(n,d)
+    print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(d)} m^{d} ")
 
+    #Ex3
+    n = 100000
+    d = 11
+    start = pc()
+    for y in range (10):
+        sphere_volume(n,d)
+    stop = pc()
+    print(f"Ex3: Sequential time of {d} and {n}: {stop-start}")
+    print("What is parallel time?")
 
-
-    # #Ex1
-    # dots = [1000, 10000, 100000]
-    # for n in dots:
-    #     approximate_pi(n)
-    # #Ex2
-    # n = 100000
-    # d = 2
-    # sphere_volume(n,d)
-    # print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(d)} m^{d} ")
-
-    # n = 100000
-    # d = 11
-    # sphere_volume(n,d)
-    # print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(d)} m^{d} ")
-
-    # #Ex3
-    # n = 100000
-    # d = 11
-    # start = pc()
-    # for y in range (10):
-    #     sphere_volume(n,d)
-    # stop = pc()
-    # print(f"Ex3: Sequential time of {d} and {n}: {stop-start}")
-    # print("What is parallel time?")
-
-    # #Ex4
-    # n = 1000000
-    # d = 11
-    # start = pc()
-    # sphere_volume(n,d)
-    # stop = pc()
-    # print(f"Ex4: Sequential time of {d} and {n}: {stop-start}")
-    # print("What is parallel time?")
+    #Ex4
+    n = 1000000
+    d = 11
+    start = pc()
+    sphere_volume(n,d)
+    stop = pc()
+    print(f"Ex4: Sequential time of {d} and {n}: {stop-start}")
+    print("What is parallel time?")
 
     
     
